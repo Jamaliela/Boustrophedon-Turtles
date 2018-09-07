@@ -1,8 +1,8 @@
 ######################################################################
-# Author: Dr. Scott Heggen              TODO: Change this to your name, if modifying
-# Username: heggens                     TODO: Change this to your username, if modifying
+# Author: Scott Heggen & Emily Lovell   TODO: Change this to your name, if modifying
+# Username: heggens & lovelle           TODO: Change this to your username, if modifying
 #
-# Assignment: T3: Boustrophedon Turtles
+# Assignment: T03: Boustrophedon Turtles
 # Purpose: To very simply demonstrate the turtle library to demo shapes and using images for shapes
 ######################################################################
 # Acknowledgements:
@@ -21,12 +21,14 @@ def make_roof(wn, shape):
     """
     A new roof! (Made from an image of bricks)
 
-    :param wn: a turtle screen object
-    :param shape: a turtle object
+    :param wn: a turtle Screen object
+    :param shape: a Turtle object
     :return: None
     """
     wn.register_shape("Bricks.gif")         # Registers a shape so it can be used by the turtle library
+    shape.penup()
     shape.setpos(80, 80)
+    shape.pendown()
     shape.shape("Bricks.gif")               # Sets the shape to the image registered above
     shape.stamp()
 
@@ -34,7 +36,7 @@ def make_main_house(shape):
     """
     Makes the main house rectangle.
 
-    :param shape: a turtle object
+    :param shape: a Turtle object
     :return: None
     """
 
@@ -53,7 +55,7 @@ def make_window(shape, x, y):
     """
     Adds a window to the house.
 
-    :param shape: a turtle object
+    :param shape: a Turtle object
     :param x: the x coordinate of the window
     :param y: the y coordinate of the window
     :return: None
@@ -75,7 +77,7 @@ def make_door(shape):
     """
     Adds a door to the house.
 
-    :param shape: a turtle object
+    :param shape: a Turtle object
     :return: None
     """
     shape.penup()
@@ -95,8 +97,8 @@ def make_deck(wn, shape):
     """
     Adds a deck to the house.
 
-    :param wn: a turtle screen object
-    :param shape: a turtle object
+    :param wn: a turtle Screen object
+    :param shape: a Turtle object
     :return: None
     """
     wn.register_shape("deck.gif")
@@ -109,14 +111,14 @@ def make_deck(wn, shape):
 
 def make_text(shape, txt):
     """
-    writes text.
+    Writes text to the screen.
 
-    :param shape: a turtle object
+    :param shape: a Turtle object
     :return: None
     """
     shape.color("#0F00F0")
     shape.setpos(70,120)
-    shape.write(txt,move=False,align='center',font=("Arial",30,("bold","normal")))
+    shape.write(txt, move=False, align='center', font=("Arial", 30, ("bold", "normal")))
 
 
 def main():
@@ -133,13 +135,14 @@ def main():
     shape = turtle.Turtle()
     shape.hideturtle()
 
+    # Function calls for each part of the house
     make_roof(wn, shape)
     make_main_house(shape)
     make_window(shape, 45, 0)
     make_window(shape, 88, 0)
     make_door(shape)
     make_deck(wn, shape)
-    make_text(shape, "Dr. Jan's Chateau")
+    make_text(shape, "Emily's California Chateau")
 
     wn.exitonclick()  # wait for a user click on the canvas
 
