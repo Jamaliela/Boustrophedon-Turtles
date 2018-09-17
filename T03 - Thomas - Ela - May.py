@@ -11,27 +11,40 @@
 import turtle      # allows us to use the turtle library
 
 
-def draw_square(dis, ang):
+def draw_square(t, d):
     """
     We are making a square!
-    :param dis: the distance that the turtle will move
-    :param ang: the angle degree that we will turn left or right
+    :param t: The name of our turtle
+    :param d: the distance it will move forward
     :return: None
     """
-    square.forward(dis)   # we want the turtle to go forward
-    for i in range(3):    # the repeatition
-        square.right(ang)
-        square.forward(dis)
+    t.forward(d)   # we want the turtle to go forward
+    for i in range(3):    # the repeatition to create the 3 side of the square
+        t.right(90)    #this is for turning
+        t.forward(d)   #this is for moving forward
 
-
-
-
-
-def function_2():
+def filling_in_square(f, dis):
     """
-    Docstring for function_1
+    this is for filling in the square
+    :param f: the turtle to fill in the square
+    :param dis: the distance that the turtle will move
+    :return: none
     """
-    pass
+    f.penup()
+    f.forward(dis)
+    f.right(90)
+    f.forward(dis)
+    f.pendown()
+    f.left(90)
+    for i in range(11):
+        f.forward(460)
+        f.right(90)
+        f.forward(dis)
+        f.right(90)
+        f.forward(460)
+        f.left(90)
+        f.forward(dis)
+        f.left(90)
     # ...
 
 
@@ -46,5 +59,6 @@ def main():
     square = turtle.Turtle()
     square.pensize(20)
     square.color("purple")
+
 
 main()
