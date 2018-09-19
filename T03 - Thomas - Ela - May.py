@@ -30,7 +30,7 @@ def filling_in_square(f, dis):
     :param dis: the distance that the turtle will move
     :return: none
     """
-    f.penup()
+    f.penup()       #
     f.forward(dis)
     f.right(90)
     f.forward(dis)
@@ -45,6 +45,13 @@ def filling_in_square(f, dis):
         f.left(90)
         f.forward(dis)
         f.left(90)
+
+    f.forward(460)
+    f.right(90)
+    f.forward(dis)
+    f.right(90)
+    f.forward(460)
+
     # ...
 
 
@@ -54,11 +61,30 @@ def main():
     """
     wn = turtle.Screen()                      # make a turtle screen
     wn.title("Ela & May & Thomas square")     # give the screen a title
-    wn.color("lightgreem")                    # give it a color
+    wn.bgcolor("lightgreen")                    # give it a color
 
     square = turtle.Turtle()
     square.pensize(20)
     square.color("purple")
 
+    square.penup()
+    square.setpos(-250,250)
+    square.pendown()
+
+    fill = turtle.Turtle()
+    fill.pensize(20)
+    fill.color("blue")
+
+    fill.penup()
+    fill.setpos(-250,250)
+
+    distance = 500
+    dis = 20
+
+
+    draw_square(square, distance)
+    filling_in_square(fill, dis)
+
+    wn.exitonclick()
 
 main()
